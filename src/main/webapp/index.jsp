@@ -1,5 +1,13 @@
+<%@page language="java" contentType="text/html"%>
 <html>
-<body>
-<h2>Hello World!</h2>
-</body>
-</html>
+<head>
+<title>
+</title>
+</head>
+fefe
+<body background='graphics/background.jpg'>
+
+<jsp:include page="top-menu.jsp" flush="true"/>
+
+
+</body></html>

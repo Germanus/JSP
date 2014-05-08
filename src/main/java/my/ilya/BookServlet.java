@@ -2,6 +2,8 @@ package my.ilya;
 
 import javax.servlet.http.*;
 import javax.servlet.ServletException;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
@@ -20,15 +22,21 @@ public class BookServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws
 		ServletException, IOException {
+		HttpSession session = request.getSession(true);
+		BookShop bookShop = (BookShop)session.getAttribute("bookShop");
 		
-		String name = null;
-		name = "Hello " + request.getParameter("book");
-		if(request.getParameter("book").toString().equals("")){
-			name = "Hello book";
-		}		
+		String book = request.getParameter("book");			
 		response.setContentType("text/plain");
 		response.setCharacterEncoding("UTF-8");
-		response.getWriter().write(name);		
+		
+		if(!book.equals("")){
+			bookShop.getAddedBooks().add(book);
+		}			
+		session.setAttribute("bookShop", bookShop); 
+		ServletContext sc = getServletContext();
+		RequestDispatcher rd = sc.getRequestDispatcher("/books-table.jsp");
+		rd.forward(request, response);
+		
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws

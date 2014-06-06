@@ -1,6 +1,7 @@
 package my.ilya.beer;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -24,25 +25,21 @@ public class BeerAdviceServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
-		String doThis = request.getParameter("do_this");
+		String color = request.getParameter("color");
 		ServletContext sc = getServletContext();
 		RequestDispatcher rd = null;
+		rd = sc.getRequestDispatcher("/pages/beeradvice.jsp");
 
-		if ("go".equals(doThis)) {
-			rd = sc.getRequestDispatcher("/pages/beeradvice.jsp");
-		}
-
-		if ("choose".equals(doThis)) {
-			String color = request.getParameter("color");
-			BeerExpert beerExpert = new BeerExpert();
+		if (color != null) {
+			response.setContentType("text/plain");
+			response.setCharacterEncoding("UTF-8");
+			BeerExpert beerExpert = new BeerExpert();			
+			request.setAttribute("styles", beerExpert.getBrands(color));
 			rd = sc.getRequestDispatcher("/pages/result.jsp");
 
-			request.setAttribute("styles", beerExpert.getBrands(color));
 		}
-		
-		if (rd != null) {
-			rd.forward(request, response);
-		}
+
+		rd.forward(request, response);
 
 	}
 

@@ -12,7 +12,6 @@
 @import "css/demo_table.css";
 </style>
 <style>
-
 </style>
 
 <link href="css/le-frog/jquery-ui-1.10.4.custom.css" rel="stylesheet">
@@ -29,23 +28,16 @@
 
 
 <script>
-    var oTable;
     $(document).ready(function() {
-	
-	
-	
-	$('#add-button').click(function(event) {
-	    var bookname = $('#book').val();
-	    $.get('BookServlet', {
-		book : bookname
+
+	$('#sumbit-button').click(function(event) {
+	    var colorname = $('#colorname').val();
+	    $.get('selectBeer.do', {
+		color : colorname
 	    }, function(responseText) {
-		oTable.html(responseText);
-		oTable.fnDestroy();
-		oTable = $('#example').dataTable();
+		$("#result-div").html(responseText);
 	    });
 	});
-
-	oTable = $('#example').dataTable();
 
     });
 </script>
@@ -68,30 +60,28 @@
 				<a href="JSP/top-menu.jsp">Book Shop</a> <br /> <a href="#">Java EE</a> <br /> <a href="#">Java2S</a>
 
 			</nav>
-			
+
 		</div>
 
 		<div id="page_body" width="136px" style="float: left">
 
-			<form id="beer-form" method="post" action="selectBeer.do?do_this=choose">
-			
-			 	<h1>Beer Selection Page</h1>
-			 	
-			 	Select beer characteristics 
-			 	
-				Color: 
-				<select id="color" name="color" size="1" class="ui-corner-all">
-					
-						<option>light</option>
-						<option>dark</option>
-						<option>amber</option>
-						<option>brown</option>
-					
-				</select>
-				
-				<button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
-					role="button" aria-disabled="false">Submit</button>				
+			<form id="beer-form">
 
+				<h1>Beer Selection Page</h1>
+
+				Select beer characteristics Color: <select id="colorname" name="color" size="1" class="ui-corner-all">
+
+					<option>light</option>
+					<option>dark</option>
+					<option>amber</option>
+					<option>brown</option>
+
+				</select>
+
+				<button id="sumbit-button" type="button"
+					class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false">Submit</button>
+
+				<div id="result-div"></div>
 			</form>
 		</div>
 		<div id="welcometext"></div>

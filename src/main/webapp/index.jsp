@@ -66,10 +66,10 @@
 		
 			<nav class="full-width">
 
-				<a href="beeradvice?do_this=go">Beer Advice</a>								 
-				<a href="JSP/top-menu.jsp">Book Shop</a> <br /> 
-				<a href="#">Java EE</a> <br /> 
-				<a href="#">Java2S</a>
+				<a href="beeradvice">Beer Advice</a>	<br/>								 
+				<a href="JSP/top-menu.jsp">Book Shop</a><br/> 
+				<a href="#">Java EE</a>	<br/> 
+				<a href="#">Java2S</a>	<br/>
 
 			</nav>
 			

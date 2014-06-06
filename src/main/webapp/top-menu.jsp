@@ -6,5 +6,4 @@
 </head>
 <body background='graphics/background.jpg'>
 
-effffffffffff
 </body></html>

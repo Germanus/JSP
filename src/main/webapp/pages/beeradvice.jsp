@@ -63,13 +63,9 @@
 
 
 		<div id="side_bar" class="side-bar">
-		
 			<nav class="full-width">
 
-				<a href="beeradvice?do_this=go">Beer Advice</a>								 
-				<a href="JSP/top-menu.jsp">Book Shop</a> <br /> 
-				<a href="#">Java EE</a> <br /> 
-				<a href="#">Java2S</a>
+				<a href="JSP/top-menu.jsp">Book Shop</a> <br /> <a href="#">Java EE</a> <br /> <a href="#">Java2S</a>
 
 			</nav>
 			
@@ -77,30 +73,24 @@
 
 		<div id="page_body" width="136px" style="float: left">
 
-			<form id="form1">
-				<select id="book" class="ui-corner-all">
-					<c:forEach items="${bookShop.getBooks()}" var="item">
-						<option value="${item}">${item}</option>
-					</c:forEach>
-				</select> <label>Quantity:</label> <input type="text" name="line" class="ui-corner-all" value=""></input>
-
-				<button id="add-button" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
-					role="button" aria-disabled="false">Add</button>
-
-				<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
-					<thead>
-						<tr>
-							<th>Name</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${bookShop.getAddedBooks()}" var="book">
-							<tr class="gradeA">
-								<td>${book}</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+			<form id="beer-form" method="post" action="selectBeer.do?do_this=choose">
+			
+			 	<h1>Beer Selection Page</h1>
+			 	
+			 	Select beer characteristics 
+			 	
+				Color: 
+				<select id="color" name="color" size="1" class="ui-corner-all">
+					
+						<option>light</option>
+						<option>dark</option>
+						<option>amber</option>
+						<option>brown</option>
+					
+				</select>
+				
+				<button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+					role="button" aria-disabled="false">Submit</button>				
 
 			</form>
 		</div>

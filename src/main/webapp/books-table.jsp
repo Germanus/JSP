@@ -1,11 +1,11 @@
 <%@page language="java" contentType="text/html"%>
-<%@page session="true"  import="java.util.List, my.ilya.BookShop"%>
+<%@page session="true"  import="java.util.List, my.ilya.book.model.Book"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<jsp:useBean id="bookShop" scope="session" class="my.ilya.BookShop" />
+<jsp:useBean id="bookShop" scope="session" class="my.ilya.book.model.Book" />
 <jsp:setProperty name="bookShop" property="*" />
 
-<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+<table class="display" id="example">
 	<thead>
 		<tr>
 			<th>Name</th>			

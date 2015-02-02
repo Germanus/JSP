@@ -1,5 +1,5 @@
 <%@page language="java" contentType="text/html"%>
-<%@page session="true" import="java.util.List, my.ilya.BookShop"%>
+<%@page session="true" import="java.util.List, my.ilya.book.model.Book"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <html>
@@ -53,7 +53,7 @@
 
 <body>
 
-	<jsp:useBean id="bookShop" scope="session" class="my.ilya.BookShop" />
+	<jsp:useBean id="bookShop" scope="session" class="my.ilya.book.model.Book" />
 	<jsp:setProperty name="bookShop" property="*" />
 
 	<div id="page_layout" style="width: 791px; height: 100%; margin: 0px auto; text-align: left"
